@@ -10,28 +10,30 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 import com.jheng.app.admin.entity.Manageadmin;
 import com.jheng.app.foundation.service.CommonService;
 
 @Controller
-//@SessionAttributes("admin")
+// @SessionAttributes("admin")
 public class AdminController
 {
 	@Autowired
 	private CommonService commonService;
 
-	@RequestMapping("/admin/login.html")
+	@RequestMapping("admin/login.html")
 	public String setupForm()
 	{
 		return "admin/login";
 	}
 
-	@RequestMapping("/admin/loginchk.html")
-	public String adminLogin(HttpServletRequest req,
-			HttpServletResponse resp)
+	@RequestMapping(value = "admin/loginchk.html", method = RequestMethod.POST)
+	public String adminLogin(HttpServletRequest req, HttpServletResponse resp)
 	{
-		//ModelAndView mav = new ModelAndView();
+		// ModelAndView mav = new ModelAndView();
 		String name = req.getParameter("aaName");
 		String pwd = req.getParameter("aaPwd");
 		HttpSession session = req.getSession();
@@ -41,21 +43,27 @@ public class AdminController
 			Map<Object, Object> map = new HashMap<Object, Object>();
 			map.put("adminName", name);
 			map.put("adminPwd", pwd);
-			List<?> aList = commonService.find(Manageadmin.class, "select a from Manageadmin a where a.adminName=:adminName and a.adminPwd=:adminPwd", map, 0, 1);
-			if(aList.size()>0){
+			List<?> aList = commonService
+					.find(Manageadmin.class,
+							"select a from Manageadmin a where a.adminName=:adminName and a.adminPwd=:adminPwd",
+							map, 0, 1);
+			if (aList.size() > 0)
+			{
 				session.setAttribute("admin", aList.get(0));
 				return "redirect:/admin/index.html";
 			}
-			else{
+			else
+			{
 				return "admin/loginfail";
 			}
 		}
 		return "admin/loginfail";
 	}
 
-	@RequestMapping("/admin/index.html")
-	public String showAdminIndex()
+	@RequestMapping("admin/{reqPath}.html")
+	public String showAdminIndex(@PathVariable String reqPath)
 	{
-		return "admin/index";
+
+		return "admin/" + reqPath;
 	}
 }

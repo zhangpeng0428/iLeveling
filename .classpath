@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="com/jheng/app/web/controller/UserAccountController.java" kind="src" path="src"/>
+	<classpathentry excluding="com/jheng/app/web/controller/UserAccountController.java|com/jheng/app/web/entity/Chargerecord.java|com/jheng/app/web/entity/Member.java|com/jheng/app/web/entity/Sheet.java|com/jheng/app/web/entity/Sheettype.java" kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_51">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>

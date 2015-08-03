@@ -1,63 +1,52 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="s" uri="http://www.springframework.org/tags/form"%>
-
 <!DOCTYPE html>
-<html  style="background-image: url('../resources/img/bg_tile.png');">
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" type="text/css" href="../resources/css/main.css">
-<link rel="stylesheet" type="text/css" href="../resources/css/admin.css">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" type="text/css"
+	href="../resources/bootstrap/css/bootstrap.css">
+<script src="/resources/js/jquery-1.11.3.min.js"></script>
+<script src="/resources/bootstrap/js/bootstrap.min.js"></script>
+<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script src="/resources/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
 <title>管理员登录</title>
+<style type="text/css">
+#inputAdminName, #inputPassword {
+	margin-bottom: 5px;
+}
+
+button {
+	width: 90px;
+}
+</style>
 </head>
 <body>
-	<div id="admin_headerdiv">
-		<h1 id="admin_header_title">后台管理</h1>
-	</div>
-	<div id="contentdiv" class="content">
-		<div class="left_col">
-			<img alt="logo" src="../resources/img/mbp.jpg"
-				style="width: 300px; margin-top: 40px; margin-left: 50px;">
-			<div style="margin: 50px auto auto 50px">
-				<h2>登录以进行后台管理</h2>
-				<p style="font-size: 12px">要查看和修改Web配置，您必须以后台管理员身份登录</p>
+	<div class="container">
+		<div class="panel panel-primary"
+			style="background-color: rgba(0, 30, 99, 0.75); margin-top: 50px;">
+			<div class="row" style="padding: 30px;">
+				<div class="col-md-4">
+					<form class="form-signin" method="post" action="loginchk.html">
+						<h2 class="form-signin-heading" style="color: white;">登录后台</h2>
+						<label for="inputText" class="sr-only">用户名</label> <input
+							type="text" id="inputAdminName" name="aaName"
+							class="form-control" placeholder="用户名" required autofocus>
+						<label for="inputPassword" class="sr-only">口令</label> <input
+							type="password" id="inputPassword" name="aaPwd"
+							class="form-control" placeholder="口令" required>
+
+						<button class="btn btn-primary btn-block col-md-1" type="submit">登入</button>
+					</form>
+				</div>
+				<div class="col-md-8"
+					style="background-image: url('../resources/img/logo128.png'); height: 200px; background-repeat: no-repeat; background-position: center center;"></div>
 			</div>
 		</div>
-		<div class="right_col">
-			<div id="login">
-				<h2 style="font-size: 20px; font-weight: normal;">请输入登录信息</h2>
 
-				<form id="formLogin" action="loginchk.html" method="post">
-					<div class="formwrap" style="margin-top: 22px;">
-
-						<input size="30" class="txt" id="aaName" type="text" value=""
-							name="aaName">
-						<div id="lblAdminAccount" class="label-text"
-							style="display: none; color: rgb(170, 170, 170); position: absolute; top: 0px; left: 0px; width: 294px; padding: 5px; text-align: start; font-size: 13px;">管理员帐号</div>
-
-
-					</div>
-					<div class="formwrap">
-
-						<input size="30" maxlength="128" tabindex="1" class="txt"
-							id="aaPwd" type="password" value="" name="aaPwd">
-						<div id="lblAdminPwd" class="label-text"
-							style="display: none; color: rgb(170, 170, 170); position: absolute; top: 0px; left: 0px; width: 294px; padding: 5px; text-align: start; font-size: 13px;">密码</div>
-
-					</div>
-					<div class="formwrap2"
-						style="border-bottom: 1px solid #ddd; height: 30px">
-						<a href="#">忘记密码？</a>
-					</div>
-					<div class="formwrap2">
-						<input type="submit" value="登 录" class="btn">
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-	<div id="footerdiv">
-		<jsp:include page="../common/footer.jsp"></jsp:include>
 	</div>
 </body>
 </html>

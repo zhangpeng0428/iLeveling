@@ -27,9 +27,9 @@ public class Member extends BaseEntity implements java.io.Serializable {
 	private Double discount;
 	private Integer score;
 	private Integer clientType;
-	private Set<Sheet> sheetsForTrainerId = new HashSet<Sheet>(0);
-	private Set<Chargerecord> chargerecords = new HashSet<Chargerecord>(0);
-	private Set<Sheet> sheetsForMemberId = new HashSet<Sheet>(0);
+//	private Set<Sheet> sheetsForTrainerId = new HashSet<Sheet>(0);
+	//private Set<Chargerecord> chargerecords = new HashSet<Chargerecord>(0);
+	//private Set<Sheet> sheetsForMemberId = new HashSet<Sheet>(0);
 
 	@Column(name = "membername", length = 50)
 	public String getMembername() {
@@ -103,31 +103,31 @@ public class Member extends BaseEntity implements java.io.Serializable {
 		this.clientType = clientType;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "memberByTrainerId")
-	public Set<Sheet> getSheetsForTrainerId() {
-		return this.sheetsForTrainerId;
-	}
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "memberByTrainerId")
+//	public Set<Sheet> getSheetsForTrainerId() {
+//		return this.sheetsForTrainerId;
+//	}
+//
+//	public void setSheetsForTrainerId(Set<Sheet> sheetsForTrainerId) {
+//		this.sheetsForTrainerId = sheetsForTrainerId;
+//	}
 
-	public void setSheetsForTrainerId(Set<Sheet> sheetsForTrainerId) {
-		this.sheetsForTrainerId = sheetsForTrainerId;
-	}
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "member")
+//	public Set<Chargerecord> getChargerecords() {
+//		return this.chargerecords;
+//	}
+//
+//	public void setChargerecords(Set<Chargerecord> chargerecords) {
+//		this.chargerecords = chargerecords;
+//	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "member")
-	public Set<Chargerecord> getChargerecords() {
-		return this.chargerecords;
-	}
-
-	public void setChargerecords(Set<Chargerecord> chargerecords) {
-		this.chargerecords = chargerecords;
-	}
-
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "memberByMemberId")
-	public Set<Sheet> getSheetsForMemberId() {
-		return this.sheetsForMemberId;
-	}
-
-	public void setSheetsForMemberId(Set<Sheet> sheetsForMemberId) {
-		this.sheetsForMemberId = sheetsForMemberId;
-	}
+//	@OneToMany(fetch = FetchType.LAZY, mappedBy = "memberByMemberId")
+//	public Set<Sheet> getSheetsForMemberId() {
+//		return this.sheetsForMemberId;
+//	}
+//
+//	public void setSheetsForMemberId(Set<Sheet> sheetsForMemberId) {
+//		this.sheetsForMemberId = sheetsForMemberId;
+//	}
 
 }
